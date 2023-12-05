@@ -10,37 +10,8 @@
   <div class='container px-5 px-sm-0'>
     <div class='row'>
       <div class='col-md-3'>
-        <h2>User info</h2>
-        <!-- モックのため、固定値や未実装になっている部分があります。アプリ完成前に修正しましょう。 -->
-        <table class='table'>
-          <tr>
-            <th><%= image_tag @user.get_profile_image, size: "100x100" %></th>
-          </tr>
-          <tr>
-            <th>name</th>
-            <th><%= @user.name %></th>
-          </tr>
-          <tr>
-            <th>introduction</th>
-            <th><%= @user.introduction %></th>
-          </tr>
-
-        </table>
-        <div class='row'>
-          <!-- 編集リンクが未実装 -->
-          <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block" do %>
-              <i class="fas fa-user-cog"></i>
-          <% end %>
-        </div>
-        <h2 class="mt-3">New book</h2>
-        <!-- form_withを用いて新規投稿フォームを作成しましょう。 -->
-        <%= form_with model: @book_new, local:true do |f| %>
-          <p>Title</p>
-          <%= f.text_field :title %>
-          <p>Opinion</p>
-          <%= f.text_area :body %>
-          <%= f.submit 'Create Book' %>
-        <% end %>
+        <%= render 'books', user: @user %>
+        <%= render 'books2', book_new: @book_new %>
       </div>
       <div class='col-md-8 offset-md-1'>
         <h2>Books</h2>
