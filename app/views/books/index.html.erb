@@ -31,7 +31,7 @@
          <% @books.each do |book| %>
            <td>
              <%= link_to user_path(book.user) do %>
-              <td><%= image_tag @user.get_profile_image, size: "100x100" %></td>
+              <td><%= image_tag book.user.get_profile_image, size: "100x100" %></td>
               <td><%= link_to book.title, book_path(book) %></td>
              <% end %>
            </td>
